@@ -1360,7 +1360,7 @@ module Tag = {
 
 module Text = {
   type t = Js.t {. className : Js.undefined string, ellipsize : Js.undefined Js.boolean};
-  external reactClass : ReasonReact.reactClass = "Tag" [@@bs.module "@blueprintjs/core"];
+  external reactClass : ReasonReact.reactClass = "Text" [@@bs.module "@blueprintjs/core"];
   let make ::className=? ::ellipsize=? children =>
     ReasonReact.wrapJsForReason
       ::reactClass
