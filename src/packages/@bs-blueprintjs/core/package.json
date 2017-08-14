@@ -1,10 +1,27 @@
 {
+  "homepage": "https://github.com/shanewilson/bs-blueprintjs#readme",
+  "license": "MIT",
+  "author": {
+    "name": "Shane Wilson"
+  },
+  "bugs": {
+    "url": "https://github.com/shanewilson/bs-blueprintjs/issues"
+  },
+  "files": [
+    "src/*.re",
+    "bsconfig.json"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shanewilson/bs-blueprintjs.git"
+  },
+  "private": false,
   "name": "@bs-blueprintjs/core",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "BuckleScript bindings for Blueprintjs",
   "peerDependencies": {
-    "reason-react": "*",
-    "bs-platform": "*",
-    "@blueprintjs/core": "*"
+    "@blueprintjs/core": ">=1.24.0 <2.0.0",
+    "bs-platform": ">=1.8.2 <2.0.0",
+    "reason-react": ">=0.2.1 <0.3.0"
   }
 }
