@@ -4,6 +4,7 @@
   "description": "BuckleScript bindings for Blueprintjs Table",
   "peerDependencies": {
     "reason-react": "*",
+    "bs-platform": "*",
     "@blueprintjs/table": "*",
     "@bs-blueprintjs/core": "*"
   }
