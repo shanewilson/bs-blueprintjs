@@ -1,0 +1,33 @@
+{
+  "name": "bs-blueprintjs",
+  "version": "0.0.0",
+  "description": "BuckleScript bindings for Blueprintjs",
+  "repository": "shanewilson/bs-blueprintjs",
+  "author": {
+    "name": "Shane Wilson"
+  },
+  "license": "MIT",
+  "files": [
+    "src/*.re",
+    "bsconfig.json"
+  ],
+  "scripts": {
+    "build": "bsb -make-world",
+    "watch": "bsb -make-world -w",
+    "clean": "bsb -clean-world",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@blueprintjs/core": "^1.24.0",
+    "@blueprintjs/table": "^1.21.0",
+    "@bs-blueprintjs/core": "file:src/packages/@bs-blueprintjs/core",
+    "@bs-blueprintjs/table": "file:src/packages/@bs-blueprintjs/table",
+    "bs-jest": "reasonml-community/bs-jest",
+    "bs-platform": "^1.8.2",
+    "jest": "^19.0.2",
+    "react": "^15.5.4",
+    "react-addons-css-transition-group": "^15.6.0",
+    "react-dom": "^15.5.4",
+    "reason-react": "^0.2.1"
+  }
+}

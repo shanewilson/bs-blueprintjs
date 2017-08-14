@@ -1,0 +1,9 @@
+{
+  "name": "@bs-blueprintjs/core",
+  "version": "0.0.0",
+  "description": "BuckleScript bindings for Blueprintjs",
+  "peerDependencies": {
+    "reason-react": "*",
+    "@blueprintjs/core": "*"
+  }
+}

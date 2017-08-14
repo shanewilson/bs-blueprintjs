@@ -1,0 +1,18 @@
+{
+  "name": "bs-blueprintjs",
+  "reason": {
+    "react-jsx": 2
+  },
+  "bs-dev-dependencies": [
+    "reason-react",
+    "@bs-blueprintjs/core",
+    "@bs-blueprintjs/table"
+  ],
+  "sources": {
+    "dir": "src/packages/@bs-blueprintjs",
+    "subdirs": [
+      "core/src",
+      "table/src"
+    ]
+  }
+}
