@@ -4,6 +4,23 @@
 
 ## Documentation
 
+Installation:
+
+```
+npm install --save @blueprintjs/core
+npm install --save-dev @bs-blueprintjs/core
+```
+
+```
+// bsconfig.json
+
+"bs-dependencies": [
+  "reason-react",
+  "@bs-blueprintjs/core"
+]
+
+```
+
 Example usage:
 
 ```reason
