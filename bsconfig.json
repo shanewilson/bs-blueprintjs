@@ -6,12 +6,14 @@
   "bs-dev-dependencies": [
     "reason-react",
     "@bs-blueprintjs/core",
+    "@bs-blueprintjs/datetime",
     "@bs-blueprintjs/table"
   ],
   "sources": {
     "dir": "src/packages/@bs-blueprintjs",
     "subdirs": [
       "core/src",
+      "datetime/src",
       "table/src"
     ]
   }
