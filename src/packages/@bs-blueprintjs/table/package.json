@@ -17,7 +17,7 @@
   },
   "private": false,
   "name": "@bs-blueprintjs/table",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "BuckleScript bindings for Blueprintjs Table",
   "peerDependencies": {
     "@blueprintjs/table": ">=1.21.0 <2.0.0",
