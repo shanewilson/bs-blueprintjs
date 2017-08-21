@@ -27,11 +27,6 @@ module DateRangeShortCuts = {
   type t =
     | Boolean Js.boolean
     | DateRangeShortCuts (array DateRangeShortCut.t);
-  let fromOpt (opt: option t) =>
-    switch opt {
-    | Some v => v |> Js.Undefined.return
-    | None => Js.Undefined.empty
-    };
 };
 
 module DatePicker = {
@@ -171,7 +166,7 @@ module DateRangePicker = {
           "modifiers": modifiers |> Js.Undefined.from_opt,
           "onChange": onChange |> Js.Undefined.from_opt,
           "onHoverChange": onHoverChange |> Js.Undefined.from_opt,
-          "shortcuts": shortcuts |> DateRangeShortCuts.fromOpt,
+          "shortcuts": shortcuts |> Js.Undefined.from_opt,
           "value": value |> Js.Undefined.from_opt
         }: t
       )
@@ -401,7 +396,7 @@ module DateRangeInput = {
           "overlappingDatesMessage": overlappingDatesMessage |> Js.Undefined.from_opt,
           "popoverProps": popoverProps |> Js.Undefined.from_opt,
           "selectAllOnFocus": selectAllOnFocus |> Blueprintjs.unwrapBool,
-          "shortcuts": shortcuts |> DateRangeShortCuts.fromOpt,
+          "shortcuts": shortcuts |> Js.Undefined.from_opt,
           "startInputProps": startInputProps |> Js.Undefined.from_opt,
           "value": value |> Js.Undefined.from_opt
         }: t

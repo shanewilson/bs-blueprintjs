@@ -9,37 +9,39 @@ module Table = {
       defaultRowHeight : Js.undefined int,
       enableFocus : Js.undefined Js.boolean,
       fillBodyWithGhostCells : Js.undefined Js.boolean,
-      focusedCell : Js.undefined string, /*	IFocusedCellCoordinates */
+      focusedCell : Js.undefined Js.Json.t, /*	IFocusedCellCoordinates */
       getCellClipboardData : Js.undefined (int => int => string),
       isColumnReorderable : Js.undefined Js.boolean,
       isColumnResizable : Js.undefined Js.boolean,
       isRowHeaderShown : Js.undefined Js.boolean,
       isRowReorderable : Js.undefined Js.boolean,
       isRowResizable : Js.undefined Js.boolean,
-      loadingOptions : Js.undefined (Js.Array.t string), /*	TableLoadingOption[]*/
+      loadingOptions : Js.undefined (Js.Array.t Js.Json.t), /*	TableLoadingOption[]*/
       maxColumnWidth : Js.undefined int,
       maxRowHeight : Js.undefined int,
       minColumnWidth : Js.undefined int,
       minRowHeight : Js.undefined int,
       numRows : Js.undefined int,
-      onColumnWidthChanged : Js.undefined string, /*	IIndexedResizeCallback*/
+      onColumnWidthChanged : Js.undefined Js.Json.t, /*	IIndexedResizeCallback*/
       onColumnsReordered : Js.undefined (int => int => int => unit),
       onCopy : Js.undefined (Js.boolean => unit),
-      onFocus : Js.undefined string, /*	(focusedCell: IFocusedCellCoordinates) => void*/
-      onRowHeightChanged : Js.undefined string, /*	IIndexedResizeCallback*/
+      onFocus :
+        Js.undefined (Js.Json.t => unit), /*	(focusedCell: IFocusedCellCoordinates) => void*/
+      onRowHeightChanged : Js.undefined Js.Json.t, /*	IIndexedResizeCallback*/
       onRowsReordered : Js.undefined (int => int => int => unit),
-      onSelection : Js.undefined string, /*	(selectedRegions: IRegion[]) => void*/
+      onSelection :
+        Js.undefined (array Js.Json.t => unit), /*	(selectedRegions: IRegion[]) => void*/
       onVisibleCellsChange :
-        Js.undefined string, /*	(rowIndices: IRowIndices, columnIndices: IColumnIndices) => void*/
-      renderBodyContextMenu : Js.undefined string, /*	IContextMenuRenderer*/
-      renderRowHeader : Js.undefined string, /*	IRowHeaderRenderer*/
+        Js.undefined (
+          Js.Json.t => Js.Json.t => unit
+        ), /*	(rowIndices: IRowIndices, columnIndices: IColumnIndices) => void*/
+      renderBodyContextMenu : Js.undefined Js.Json.t, /*	IContextMenuRenderer*/
+      renderRowHeader : Js.undefined Js.Json.t, /*	IRowHeaderRenderer*/
       rowHeights : Js.undefined (Js.Array.t int),
-      selectedRegionTransform : Js.undefined string, /*	ISelectedRegionTransform*/
-      selectedRegions : Js.undefined string, /*	IRegion[]*/
-      selectionModes : Js.undefined string, /*	RegionCardinality[] */
-      styledRegionGroups :
-        Js.undefined
-          string /*	IStyledRegionGroup[]*/
+      selectedRegionTransform : Js.undefined Js.Json.t, /*	ISelectedRegionTransform*/
+      selectedRegions : Js.undefined (array Js.Json.t), /*	IRegion[]*/
+      selectionModes : Js.undefined (array Js.Json.t), /*	RegionCardinality[] */
+      styledRegionGroups : Js.undefined (array Js.Json.t) /*	IStyledRegionGroup[]*/
     };
   external reactClass : ReasonReact.reactClass = "Table" [@@bs.module "@blueprintjs/table"];
   /*

@@ -1,3 +1,16 @@
+module JsValue = {
+  type t =
+    | String string
+    | Float float
+    | Int int;
+};
+
+module RenderLabel = {
+  type t =
+    | Boolean Js.boolean
+    | Label (float => ReasonReact.reactElement);
+};
+
 module Intent = {
   type t =
     | NONE
@@ -52,11 +65,6 @@ module Position = {
     | LEFT_BOTTOM
     | LEFT
     | LEFT_TOP;
-  let fromOpt (opt: option t) =>
-    switch opt {
-    | None => Js.Undefined.empty
-    | Some p => Js.Undefined.return p
-    };
   external isPositionHorizontal : t => Js.boolean =
     "isPositionHorizontal" [@@bs.module "@blueprintjs/core"];
   let isPositionHorizontal position => Js.to_bool (isPositionHorizontal position);
@@ -88,9 +96,9 @@ module Tether = {
       targetOffset : Js.undefined string,
       targetModifier : Js.undefined string,
       enabled : Js.undefined Js.boolean,
-      classes : Js.undefined string, /* {[key:string]: string} */
+      classes : Js.undefined (Js.Dict.t string),
       classPrefix : Js.undefined string,
-      optimizations : Js.undefined string, /* {[key:string]: string} */
+      optimizations : Js.undefined (Js.Dict.t string),
       constraints : Js.Array.t Constraint.t
     };
 };
@@ -687,8 +695,7 @@ module Form = {
         selectAllOnFocus : Js.undefined Js.boolean,
         selectAllOnIncrement : Js.undefined Js.boolean,
         stepSize : Js.undefined int,
-        value :
-          string /* string | Int */
+        value : JsValue.t
       };
     external reactClass : ReasonReact.reactClass =
       "NumericInput" [@@bs.module "@blueprintjs/core"];
@@ -718,7 +725,7 @@ module Form = {
         props::(
           {
             "allowNumericCharactersOnly": allowNumericCharactersOnly |> unwrapBool,
-            "buttonPosition": Position.fromOpt buttonPosition,
+            "buttonPosition": buttonPosition |> Js.Undefined.from_opt,
             "clampValueOnBlur": clampValueOnBlur |> unwrapBool,
             "className": className |> Js.Undefined.from_opt,
             "disabled": disabled |> unwrapBool,
@@ -1079,7 +1086,7 @@ module Popover = {
           "popoverWillClose": popoverWillClose |> Js.Undefined.from_opt,
           "popoverWillOpen": popoverWillOpen |> Js.Undefined.from_opt,
           "portalClassName": portalClassName |> Js.Undefined.from_opt,
-          "position": Position.fromOpt position,
+          "position": position |> Js.Undefined.from_opt,
           "rootElementTag": rootElementTag |> Js.Undefined.from_opt,
           "target": target |> Js.Undefined.from_opt,
           "tetherOptions": tetherOptions |> Js.Undefined.from_opt,
@@ -1164,10 +1171,7 @@ module Slider = {
       min : Js.undefined float,
       onChange : Js.undefined (float => unit),
       onRelease : Js.undefined (float => unit),
-      renderLabel :
-        Js.undefined (
-          float => ReasonReact.reactElement
-        ), /* boolean | (float => string | JSX.Element) */
+      renderLabel : Js.undefined RenderLabel.t,
       showTrackFill : Js.undefined Js.boolean,
       stepSize : Js.undefined int,
       value : Js.undefined float
@@ -1220,10 +1224,7 @@ module RangeSlider = {
       min : Js.undefined float,
       onChange : Js.undefined (float => unit),
       onRelease : Js.undefined (float => unit),
-      renderLabel :
-        Js.undefined (
-          float => ReasonReact.reactElement
-        ), /* boolean | (float => string | JSX.Element) */
+      renderLabel : Js.undefined RenderLabel.t,
       showTrackFill : Js.undefined Js.boolean,
       stepSize : Js.undefined int,
       value : Js.undefined float
@@ -1270,14 +1271,11 @@ module Tabs = {
       .
       animate : Js.undefined Js.boolean,
       className : Js.undefined string,
-      defaultSelectedTabId : Js.undefined string, /* string | number */
-      id : string, /* string | number */
-      onChange :
-        Js.undefined (
-          string => string => ReactEventRe.Mouse.t => unit
-        ), /* (newTabId: string | number, prevTabId: string | number, event: MouseEvent<HTMLElement>) => void */
+      defaultSelectedTabId : Js.undefined JsValue.t,
+      id : JsValue.t,
+      onChange : Js.undefined (JsValue.t => JsValue.t => ReactEventRe.Mouse.t => unit),
       renderActiveTabPanelOnly : Js.undefined Js.boolean,
-      selectedTabId : Js.undefined string, /* string | number */
+      selectedTabId : Js.undefined JsValue.t,
       vertical : Js.undefined Js.boolean
     };
   external reactClass : ReasonReact.reactClass = "Tabs2" [@@bs.module "@blueprintjs/core"];
@@ -1314,7 +1312,7 @@ module Tab = {
       .
       className : Js.undefined string,
       disabled : Js.undefined Js.boolean,
-      id : string, /* string | number */
+      id : JsValue.t,
       panel : Js.undefined ReasonReact.reactElement,
       title : Js.undefined ReasonReact.reactElement
     };
@@ -1405,7 +1403,7 @@ module Toast = {
   type t =
     Js.t {
       .
-      action : Js.undefined string, /* IActionProps & ILinkProps */
+      action : Js.undefined Js.Json.t, /* IActionProps & ILinkProps */
       className : Js.undefined string,
       iconName : Js.undefined string,
       intent : Js.undefined int,
@@ -1504,7 +1502,7 @@ module Tooltip = {
           "onInteraction": onInteraction |> Js.Undefined.from_opt,
           "openOnTargetFocus": openOnTargetFocus |> unwrapBool,
           "portalClassName": portalClassName |> Js.Undefined.from_opt,
-          "position": Position.fromOpt position,
+          "position": position |> Js.Undefined.from_opt,
           "rootElementTag": rootElementTag |> Js.Undefined.from_opt,
           "tetherOptions": tetherOptions |> Js.Undefined.from_opt,
           "tooltipClassName": tooltipClassName |> Js.Undefined.from_opt,
@@ -1525,10 +1523,10 @@ module Tree = {
       depth: int,
       hasCaret: Js.undefined Js.boolean,
       iconName: Js.undefined string,
-      id: string, /* string | number */
+      id: JsValue.t,
       isExpanded: Js.undefined Js.boolean,
       isSelected: Js.undefined Js.boolean,
-      key: Js.undefined string, /*	string | number */
+      key: Js.undefined JsValue.t,
       label: ReasonReact.reactElement,
       onClick: Js.undefined (t => ReactEventRe.Mouse.t => unit),
       onCollapse: Js.undefined (t => ReactEventRe.Mouse.t => unit),
