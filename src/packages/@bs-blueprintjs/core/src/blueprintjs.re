@@ -200,6 +200,8 @@ module Button = {
       intent : Js.undefined int,
       loading : Js.undefined Js.boolean,
       onClick : Js.undefined (ReactEventRe.Mouse.t => unit),
+      onMouseEnter : Js.undefined (ReactEventRe.Mouse.t => unit),
+      onMouseLeave : Js.undefined (ReactEventRe.Mouse.t => unit),
       rightIconName : Js.undefined string,
       text : Js.undefined string,
       _type : Js.undefined string
@@ -214,6 +216,8 @@ module Button = {
       ::intent=?
       ::loading=?
       ::onClick=?
+      ::onMouseEnter=?
+      ::onMouseLeave=?
       ::rightIconName=?
       ::text=?
       ::_type=?
@@ -230,6 +234,8 @@ module Button = {
           "intent": intent |> Intent.fromOpt,
           "loading": loading |> unwrapBool,
           "onClick": onClick |> Js.Undefined.from_opt,
+          "onMouseEnter": onMouseEnter |> Js.Undefined.from_opt,
+          "onMouseLeave": onMouseLeave |> Js.Undefined.from_opt,
           "rightIconName": rightIconName |> Js.Undefined.from_opt,
           "text": text |> Js.Undefined.from_opt,
           "_type": Js.Undefined.from_opt _type
@@ -250,6 +256,8 @@ module AnchorButton = {
       intent : Js.undefined int,
       loading : Js.undefined Js.boolean,
       onClick : Js.undefined (ReactEventRe.Mouse.t => unit),
+      onMouseEnter : Js.undefined (ReactEventRe.Mouse.t => unit),
+      onMouseLeave : Js.undefined (ReactEventRe.Mouse.t => unit),
       rightIconName : Js.undefined string,
       text : Js.undefined string
     };
@@ -263,6 +271,8 @@ module AnchorButton = {
       ::intent=?
       ::loading=?
       ::onClick=?
+      ::onMouseEnter=?
+      ::onMouseLeave=?
       ::rightIconName=?
       ::text=?
       children =>
@@ -278,6 +288,8 @@ module AnchorButton = {
           "intent": intent |> Intent.fromOpt,
           "loading": loading |> unwrapBool,
           "onClick": onClick |> Js.Undefined.from_opt,
+          "onMouseEnter": onMouseEnter |> Js.Undefined.from_opt,
+          "onMouseLeave": onMouseLeave |> Js.Undefined.from_opt,
           "rightIconName": rightIconName |> Js.Undefined.from_opt,
           "text": text |> Js.Undefined.from_opt
         }: t
