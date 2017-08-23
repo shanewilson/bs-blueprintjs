@@ -266,30 +266,48 @@ module DateInput = {
       .
       canClearSelection : Js.undefined Js.boolean,
       className : Js.undefined string,
+      closeOnSelection : Js.undefined Js.boolean,
       defaultValue : Js.undefined Js.Date.t,
+      disabled : Js.undefined Js.boolean,
+      format : Js.undefined string,
       initialMonth : Js.undefined Js.Date.t,
+      inputProps : Js.undefined Js.Json.t, /* HTMLProps<HTMLInputElement> & IInputGroupProps */
+      invalidDateMessage : Js.undefined string,
       locale : Js.undefined string,
-      localeUtils : Js.undefined Js.Json.t, /* 	DayPicker.LocaleUtils */
+      localeUtils : Js.undefined Js.Json.t, /* DayPicker.LocaleUtils */
       maxDate : Js.undefined Js.Date.t,
       minDate : Js.undefined Js.Date.t,
       modifiers : Js.undefined DatePickerModifiers.t,
       onChange : Js.undefined (Js.Date.t => unit),
-      showActionsBar : Js.undefined Js.boolean,
+      onError : Js.undefined (Js.Date.t => unit),
+      outOfRangeMessage : Js.undefined string,
+      popoverProps : Js.undefined Blueprintjs.Popover.t,
+      rightElement : Js.undefined ReasonReact.reactElement,
+      timePrecision : Js.undefined TimePickerPrecision.t,
       value : Js.undefined Js.Date.t
     };
   external reactClass : ReasonReact.reactClass = "DateInput" [@@bs.module "@blueprintjs/datetime"];
   let make
       ::canClearSelection=?
       ::className=?
+      ::closeOnSelection=?
       ::defaultValue=?
+      ::disabled=?
+      ::format=?
       ::initialMonth=?
+      ::inputProps=?
+      ::invalidDateMessage=?
       ::locale=?
       ::localeUtils=?
       ::maxDate=?
       ::minDate=?
       ::modifiers=?
       ::onChange=?
-      ::showActionsBar=?
+      ::onError=?
+      ::outOfRangeMessage=?
+      ::popoverProps=?
+      ::rightElement=?
+      ::timePrecision=?
       ::value=?
       children =>
     ReasonReact.wrapJsForReason
@@ -298,15 +316,24 @@ module DateInput = {
         {
           "canClearSelection": canClearSelection |> Blueprintjs.unwrapBool,
           "className": className |> Js.Undefined.from_opt,
+          "closeOnSelection": closeOnSelection |> Blueprintjs.unwrapBool,
           "defaultValue": defaultValue |> Js.Undefined.from_opt,
+          "disabled": disabled |> Blueprintjs.unwrapBool,
+          "format": format |> Js.Undefined.from_opt,
           "initialMonth": initialMonth |> Js.Undefined.from_opt,
+          "inputProps": inputProps |> Js.Undefined.from_opt,
+          "invalidDateMessage": invalidDateMessage |> Js.Undefined.from_opt,
           "locale": locale |> Js.Undefined.from_opt,
           "localeUtils": localeUtils |> Js.Undefined.from_opt,
           "maxDate": maxDate |> Js.Undefined.from_opt,
           "minDate": minDate |> Js.Undefined.from_opt,
           "modifiers": modifiers |> Js.Undefined.from_opt,
           "onChange": onChange |> Js.Undefined.from_opt,
-          "showActionsBar": showActionsBar |> Blueprintjs.unwrapBool,
+          "onError": onError |> Js.Undefined.from_opt,
+          "outOfRangeMessage": outOfRangeMessage |> Js.Undefined.from_opt,
+          "popoverProps": popoverProps |> Js.Undefined.from_opt,
+          "rightElement": rightElement |> Js.Undefined.from_opt,
+          "timePrecision": timePrecision |> Js.Undefined.from_opt,
           "value": value |> Js.Undefined.from_opt
         }: t
       )
