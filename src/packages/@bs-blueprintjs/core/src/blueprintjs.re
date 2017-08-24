@@ -707,7 +707,7 @@ module Form = {
         selectAllOnFocus : Js.undefined Js.boolean,
         selectAllOnIncrement : Js.undefined Js.boolean,
         stepSize : Js.undefined int,
-        value : JsValue.t
+        value : Js.undefined JsValue.t
       };
     external reactClass : ReasonReact.reactClass =
       "NumericInput" [@@bs.module "@blueprintjs/core"];
@@ -730,7 +730,7 @@ module Form = {
         ::selectAllOnFocus=?
         ::selectAllOnIncrement=?
         ::stepSize=?
-        ::value
+        ::value=?
         children =>
       ReasonReact.wrapJsForReason
         ::reactClass
@@ -754,7 +754,7 @@ module Form = {
             "selectAllOnFocus": selectAllOnFocus |> unwrapBool,
             "selectAllOnIncrement": selectAllOnIncrement |> unwrapBool,
             "stepSize": stepSize |> Js.Undefined.from_opt,
-            "value": value
+            "value": value |> Js.Undefined.from_opt
           }: t
         )
         children;
