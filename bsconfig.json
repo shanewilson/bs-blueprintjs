@@ -3,15 +3,11 @@
   "reason": {
     "react-jsx": 2
   },
-  "bs-dev-dependencies": [
-    "reason-react",
-    "@bs-blueprintjs/core",
-    "@bs-blueprintjs/datetime",
-    "@bs-blueprintjs/labs",
-    "@bs-blueprintjs/table"
+  "bs-dependencies": [
+    "reason-react"
   ],
   "sources": {
-    "dir": "src/packages/@bs-blueprintjs",
+    "dir": "src/packages",
     "subdirs": [
       "core/src",
       "datetime/src",
