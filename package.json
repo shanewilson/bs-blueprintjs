@@ -26,8 +26,10 @@
   "devDependencies": {
     "@blueprintjs/core": "^1.24.0",
     "@blueprintjs/table": "^1.21.0",
+    "@blueprintjs/labs": "^0.6.0",
     "@blueprintjs/datetime": "^1.19.0",
     "@bs-blueprintjs/core": "file:src/packages/@bs-blueprintjs/core",
+    "@bs-blueprintjs/labs": "file:src/packages/@bs-blueprintjs/labs",
     "@bs-blueprintjs/table": "file:src/packages/@bs-blueprintjs/table",
     "@bs-blueprintjs/datetime": "file:src/packages/@bs-blueprintjs/datetime",
     "@knit/knit": "^0.6.1",
