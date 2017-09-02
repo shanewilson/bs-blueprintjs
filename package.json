@@ -24,12 +24,12 @@
     "postversion": "npm run knit:publish"
   },
   "dependencies": {
-    "@blueprintjs/core": "^1.24.0",
-    "@blueprintjs/datetime": "^1.19.0",
-    "@blueprintjs/labs": "^0.6.0",
-    "@blueprintjs/table": "^1.21.0",
+    "@blueprintjs/core": "^1.27.0",
+    "@blueprintjs/datetime": "^1.22.0",
+    "@blueprintjs/labs": "^0.8.0",
+    "@blueprintjs/table": "^1.24.1",
     "bs-platform": "^1.9.1",
-    "reason-react": "^0.2.3"
+    "reason-react": "^0.2.4"
   },
   "devDependencies": {
     "@knit/knit": "^0.7.0",
