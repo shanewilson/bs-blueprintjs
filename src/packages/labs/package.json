@@ -17,12 +17,12 @@
   },
   "private": false,
   "name": "@bs-blueprintjs/labs",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "BuckleScript bindings for Blueprintjs Labs",
   "dependencies": {
-    "@blueprintjs/labs": "*",
-    "@bs-blueprintjs/core": "*",
-    "bs-platform": ">=1.8.2 <2.0.0",
-    "reason-react": ">=0.2.1 <0.3.0"
+    "@blueprintjs/labs": "^0.8.0",
+    "@bs-blueprintjs/core": "0.2.0",
+    "bs-platform": "^1.9.1",
+    "reason-react": "^0.2.4"
   }
 }
