@@ -605,6 +605,7 @@ module Form = {
         .
         className : Js.undefined string,
         disabled : Js.undefined Js.boolean,
+        inline : Js.undefined Js.boolean,
         label : Js.undefined string,
         name : Js.undefined string,
         onChange : ReactEventRe.Form.t => unit,
@@ -615,6 +616,7 @@ module Form = {
     let make
         ::className=?
         ::disabled=?
+        ::inline=?
         ::label=?
         ::name=?
         ::onChange
@@ -627,6 +629,7 @@ module Form = {
           {
             "className": className |> Js.Undefined.from_opt,
             "disabled": disabled |> unwrapBool,
+            "inline": inline |> unwrapBool,
             "label": label |> Js.Undefined.from_opt,
             "name": name |> Js.Undefined.from_opt,
             "onChange": onChange,
@@ -1285,6 +1288,7 @@ module Tabs = {
       className : Js.undefined string,
       defaultSelectedTabId : Js.undefined JsValue.t,
       id : JsValue.t,
+      large : Js.undefined Js.boolean,
       onChange : Js.undefined (JsValue.t => JsValue.t => ReactEventRe.Mouse.t => unit),
       renderActiveTabPanelOnly : Js.undefined Js.boolean,
       selectedTabId : Js.undefined JsValue.t,
@@ -1296,6 +1300,7 @@ module Tabs = {
       ::className=?
       ::defaultSelectedTabId=?
       ::id
+      ::large
       ::onChange=?
       ::renderActiveTabPanelOnly=?
       ::selectedTabId=?
@@ -1309,6 +1314,7 @@ module Tabs = {
           "className": className |> Js.Undefined.from_opt,
           "defaultSelectedTabId": defaultSelectedTabId |> Js.Undefined.from_opt,
           "id": id,
+          "large": large |> unwrapBool,
           "onChange": onChange |> Js.Undefined.from_opt,
           "renderActiveTabPanelOnly": renderActiveTabPanelOnly |> unwrapBool,
           "selectedTabId": selectedTabId |> Js.Undefined.from_opt,
