@@ -19,7 +19,7 @@
   "name": "@bs-blueprintjs/datetime",
   "version": "0.2.0",
   "description": "BuckleScript bindings for Blueprintjs Datetime",
-  "peerDependencies": {
+  "dependencies": {
     "@blueprintjs/datetime": ">=1.19.0 <2.0.0",
     "@bs-blueprintjs/core": "*",
     "bs-platform": ">=1.8.2 <2.0.0",

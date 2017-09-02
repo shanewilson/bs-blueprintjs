@@ -19,7 +19,7 @@
   "name": "@bs-blueprintjs/labs",
   "version": "0.2.0",
   "description": "BuckleScript bindings for Blueprintjs Labs",
-  "peerDependencies": {
+  "dependencies": {
     "@blueprintjs/labs": "*",
     "@bs-blueprintjs/core": "*",
     "bs-platform": ">=1.8.2 <2.0.0",

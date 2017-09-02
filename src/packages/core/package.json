@@ -19,7 +19,7 @@
   "name": "@bs-blueprintjs/core",
   "version": "0.2.0",
   "description": "BuckleScript bindings for Blueprintjs",
-  "peerDependencies": {
+  "dependencies": {
     "@blueprintjs/core": ">=1.24.0 <2.0.0",
     "bs-platform": ">=1.8.2 <2.0.0",
     "reason-react": ">=0.2.1 <0.3.0"
