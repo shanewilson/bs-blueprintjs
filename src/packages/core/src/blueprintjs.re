@@ -1636,3 +1636,510 @@ module CollapsibleList = {
       )
       children;
 };
+
+module Colors = {
+  type t =
+    | BLACK
+    | BLUE1
+    | BLUE2
+    | BLUE3
+    | BLUE4
+    | BLUE5
+    | COBALT1
+    | COBALT2
+    | COBALT3
+    | COBALT4
+    | COBALT5
+    | DARK_GRAY1
+    | DARK_GRAY2
+    | DARK_GRAY3
+    | DARK_GRAY4
+    | DARK_GRAY5
+    | FOREST1
+    | FOREST2
+    | FOREST3
+    | FOREST4
+    | FOREST5
+    | GOLD1
+    | GOLD2
+    | GOLD3
+    | GOLD4
+    | GOLD5
+    | GRAY1
+    | GRAY2
+    | GRAY3
+    | GRAY4
+    | GRAY5
+    | GREEN1
+    | GREEN2
+    | GREEN3
+    | GREEN4
+    | GREEN5
+    | INDIGO1
+    | INDIGO2
+    | INDIGO3
+    | INDIGO4
+    | INDIGO5
+    | LIGHT_GRAY1
+    | LIGHT_GRAY2
+    | LIGHT_GRAY3
+    | LIGHT_GRAY4
+    | LIGHT_GRAY5
+    | LIME1
+    | LIME2
+    | LIME3
+    | LIME4
+    | LIME5
+    | ORANGE1
+    | ORANGE2
+    | ORANGE3
+    | ORANGE4
+    | ORANGE5
+    | RED1
+    | RED2
+    | RED3
+    | RED4
+    | RED5
+    | ROSE1
+    | ROSE2
+    | ROSE3
+    | ROSE4
+    | ROSE5
+    | SEPIA1
+    | SEPIA2
+    | SEPIA3
+    | SEPIA4
+    | SEPIA5
+    | TURQUOISE1
+    | TURQUOISE2
+    | TURQUOISE3
+    | TURQUOISE4
+    | TURQUOISE5
+    | VERMILION1
+    | VERMILION2
+    | VERMILION3
+    | VERMILION4
+    | VERMILION5
+    | VIOLET1
+    | VIOLET2
+    | VIOLET3
+    | VIOLET4
+    | VIOLET5
+    | WHITE;
+  let toHex c =>
+    switch c {
+    | BLACK => "#10161A"
+    | BLUE1 => "#0E5A8A"
+    | BLUE2 => "#106BA3"
+    | BLUE3 => "#137CBD"
+    | BLUE4 => "#2B95D6"
+    | BLUE5 => "#48AFF0"
+    | COBALT1 => "#1F4B99"
+    | COBALT2 => "#2458B3"
+    | COBALT3 => "#2965CC"
+    | COBALT4 => "#4580E6"
+    | COBALT5 => "#669EFF"
+    | DARK_GRAY1 => "#182026"
+    | DARK_GRAY2 => "#202B33"
+    | DARK_GRAY3 => "#293742"
+    | DARK_GRAY4 => "#30404D"
+    | DARK_GRAY5 => "#394B59"
+    | FOREST1 => "#1D7324"
+    | FOREST2 => "#238C2C"
+    | FOREST3 => "#29A634"
+    | FOREST4 => "#43BF4D"
+    | FOREST5 => "#62D96B"
+    | GOLD1 => "#A67908"
+    | GOLD2 => "#BF8C0A"
+    | GOLD3 => "#D99E0B"
+    | GOLD4 => "#F2B824"
+    | GOLD5 => "#FFC940"
+    | GRAY1 => "#5C7080"
+    | GRAY2 => "#738694"
+    | GRAY3 => "#8A9BA8"
+    | GRAY4 => "#A7B6C2"
+    | GRAY5 => "#BFCCD6"
+    | GREEN1 => "#0A6640"
+    | GREEN2 => "#0D8050"
+    | GREEN3 => "#0F9960"
+    | GREEN4 => "#15B371"
+    | GREEN5 => "#3DCC91"
+    | INDIGO1 => "#5642A6"
+    | INDIGO2 => "#634DBF"
+    | INDIGO3 => "#7157D9"
+    | INDIGO4 => "#9179F2"
+    | INDIGO5 => "#AD99FF"
+    | LIGHT_GRAY1 => "#CED9E0"
+    | LIGHT_GRAY2 => "#D8E1E8"
+    | LIGHT_GRAY3 => "#E1E8ED"
+    | LIGHT_GRAY4 => "#EBF1F5"
+    | LIGHT_GRAY5 => "#F5F8FA"
+    | LIME1 => "#728C23"
+    | LIME2 => "#87A629"
+    | LIME3 => "#9BBF30"
+    | LIME4 => "#B6D94C"
+    | LIME5 => "#D1F26D"
+    | ORANGE1 => "#A66321"
+    | ORANGE2 => "#BF7326"
+    | ORANGE3 => "#D9822B"
+    | ORANGE4 => "#F29D49"
+    | ORANGE5 => "#FFB366"
+    | RED1 => "#A82A2A"
+    | RED2 => "#C23030"
+    | RED3 => "#DB3737"
+    | RED4 => "#F55656"
+    | RED5 => "#FF7373"
+    | ROSE1 => "#A82255"
+    | ROSE2 => "#C22762"
+    | ROSE3 => "#DB2C6F"
+    | ROSE4 => "#F5498B"
+    | ROSE5 => "#FF66A1"
+    | SEPIA1 => "#63411E"
+    | SEPIA2 => "#7D5125"
+    | SEPIA3 => "#96622D"
+    | SEPIA4 => "#B07B46"
+    | SEPIA5 => "#C99765"
+    | TURQUOISE1 => "#008075"
+    | TURQUOISE2 => "#00998C"
+    | TURQUOISE3 => "#00B3A4"
+    | TURQUOISE4 => "#14CCBD"
+    | TURQUOISE5 => "#2EE6D6"
+    | VERMILION1 => "#9E2B0E"
+    | VERMILION2 => "#B83211"
+    | VERMILION3 => "#D13913"
+    | VERMILION4 => "#EB532D"
+    | VERMILION5 => "#FF6E4A"
+    | VIOLET1 => "#5C255C"
+    | VIOLET2 => "#752F75"
+    | VIOLET3 => "#8F398F"
+    | VIOLET4 => "#A854A8"
+    | VIOLET5 => "#C274C2"
+    | WHITE => "#FFFFFF"
+    };
+};
+
+module Keys = {
+  type t =
+    | BACKSPACE
+    | TAB
+    | ENTER
+    | SHIFT
+    | ESCAPE
+    | SPACE
+    | ARROW_LEFT
+    | ARROW_UP
+    | ARROW_RIGHT
+    | ARROW_DOWN
+    | DELETE;
+  let toInt x =>
+    switch x {
+    | BACKSPACE => 8
+    | TAB => 9
+    | ENTER => 13
+    | SHIFT => 16
+    | ESCAPE => 27
+    | SPACE => 32
+    | ARROW_LEFT => 37
+    | ARROW_UP => 38
+    | ARROW_RIGHT => 39
+    | ARROW_DOWN => 40
+    | DELETE => 46
+    };
+};
+
+module Classes = {
+  type t =
+    | DARK
+    | ACTIVE
+    | MINIMAL
+    | DISABLED
+    | SMALL
+    | LARGE
+    | LOADING
+    | INTERACTIVE
+    | ALIGN_LEFT
+    | ALIGN_RIGHT
+    | INLINE
+    | FILL
+    | FIXED
+    | FIXED_TOP
+    | VERTICAL
+    | ROUND
+    | TEXT_MUTED
+    | TEXT_OVERFLOW_ELLIPSIS
+    | UI_TEXT_LARGE
+    | ALERT
+    | ALERT_BODY
+    | ALERT_CONTENTS
+    | ALERT_FOOTER
+    | BREADCRUMB
+    | BREADCRUMB_CURRENT
+    | BREADCRUMBS
+    | BREADCRUMBS_COLLAPSED
+    | BUTTON
+    | BUTTON_GROUP
+    | CALLOUT
+    | CARD
+    | COLLAPSE
+    | COLLAPSIBLE_LIST
+    | CONTEXT_MENU
+    | CONTEXT_MENU_POPOVER_TARGET
+    | CONTROL
+    | CONTROL_GROUP
+    | CONTROL_INDICATOR
+    | DIALOG
+    | DIALOG_CONTAINER
+    | DIALOG_BODY
+    | DIALOG_CLOSE_BUTTON
+    | DIALOG_FOOTER
+    | DIALOG_FOOTER_ACTIONS
+    | DIALOG_HEADER
+    | EDITABLE_TEXT
+    | ELEVATION_0
+    | ELEVATION_1
+    | ELEVATION_2
+    | ELEVATION_3
+    | ELEVATION_4
+    | INPUT
+    | INPUT_GROUP
+    | CHECKBOX
+    | RADIO
+    | SWITCH
+    | FILE_UPLOAD
+    | FILE_UPLOAD_INPUT
+    | INTENT_PRIMARY
+    | INTENT_SUCCESS
+    | INTENT_WARNING
+    | INTENT_DANGER
+    | LABEL
+    | FORM_GROUP
+    | FORM_CONTENT
+    | FORM_HELPER_TEXT
+    | MENU
+    | MENU_ITEM
+    | MENU_ITEM_LABEL
+    | MENU_SUBMENU
+    | MENU_DIVIDER
+    | MENU_HEADER
+    | NAVBAR
+    | NAVBAR_GROUP
+    | NAVBAR_HEADING
+    | NAVBAR_DIVIDER
+    | NON_IDEAL_STATE
+    | NON_IDEAL_STATE_ACTION
+    | NON_IDEAL_STATE_DESCRIPTION
+    | NON_IDEAL_STATE_ICON
+    | NON_IDEAL_STATE_TITLE
+    | NON_IDEAL_STATE_VISUAL
+    | NUMERIC_INPUT
+    | OVERLAY
+    | OVERLAY_BACKDROP
+    | OVERLAY_CONTENT
+    | OVERLAY_INLINE
+    | OVERLAY_OPEN
+    | OVERLAY_SCROLL_CONTAINER
+    | POPOVER
+    | POPOVER_ARROW
+    | POPOVER_BACKDROP
+    | POPOVER_CONTENT
+    | POPOVER_DISMISS
+    | POPOVER_DISMISS_OVERRIDE
+    | POPOVER_OPEN
+    | POPOVER_TARGET
+    | TRANSITION_CONTAINER
+    | PROGRESS_BAR
+    | PROGRESS_METER
+    | PROGRESS_NO_STRIPES
+    | PROGRESS_NO_ANIMATION
+    | PORTAL
+    | SELECT
+    | SKELETON
+    | SLIDER
+    | SLIDER_HANDLE
+    | SLIDER_LABEL
+    | RANGE_SLIDER
+    | SPINNER
+    | SVG_SPINNER
+    | TAB
+    | TAB_LIST
+    | TAB_PANEL
+    | TABS
+    | TABLE
+    | TABLE_CONDENSED
+    | TABLE_STRIPED
+    | TABLE_BORDERED
+    | TAG
+    | TAG_REMOVABLE
+    | TAG_REMOVE
+    | TOAST
+    | TOAST_CONTAINER
+    | TOAST_MESSAGE
+    | TOOLTIP
+    | TREE
+    | TREE_NODE
+    | TREE_NODE_CARET
+    | TREE_NODE_CARET_CLOSED
+    | TREE_NODE_CARET_NONE
+    | TREE_NODE_CARET_OPEN
+    | TREE_NODE_CONTENT
+    | TREE_NODE_EXPANDED
+    | TREE_NODE_ICON
+    | TREE_NODE_LABEL
+    | TREE_NODE_LIST
+    | TREE_NODE_SECONDARY_LABEL
+    | TREE_NODE_SELECTED
+    | TREE_ROOT
+    | ICON
+    | ICON_STANDARD
+    | ICON_LARGE;
+  let toString c =>
+    switch c {
+    | DARK => "pt-dark"
+    | ACTIVE => "pt-active"
+    | MINIMAL => "pt-minimal"
+    | DISABLED => "pt-disabled"
+    | SMALL => "pt-small"
+    | LARGE => "pt-large"
+    | LOADING => "pt-loading"
+    | INTERACTIVE => "pt-interactive"
+    | ALIGN_LEFT => "pt-align-left"
+    | ALIGN_RIGHT => "pt-align-right"
+    | INLINE => "pt-inline"
+    | FILL => "pt-fill"
+    | FIXED => "pt-fixed"
+    | FIXED_TOP => "pt-fixed-top"
+    | VERTICAL => "pt-vertical"
+    | ROUND => "pt-round"
+    | TEXT_MUTED => "pt-text-muted"
+    | TEXT_OVERFLOW_ELLIPSIS => "pt-text-overflow-ellipsis"
+    | UI_TEXT_LARGE => "pt-ui-text-large"
+    | ALERT => "pt-alert"
+    | ALERT_BODY => "pt-alert-body"
+    | ALERT_CONTENTS => "pt-alert-contents"
+    | ALERT_FOOTER => "pt-alert-footer"
+    | BREADCRUMB => "pt-breadcrumb"
+    | BREADCRUMB_CURRENT => "pt-breadcrumb-current"
+    | BREADCRUMBS => "pt-breadcrumbs"
+    | BREADCRUMBS_COLLAPSED => "pt-breadcrumbs-collapsed"
+    | BUTTON => "pt-button"
+    | BUTTON_GROUP => "pt-button-group"
+    | CALLOUT => "pt-callout"
+    | CARD => "pt-card"
+    | COLLAPSE => "pt-collapse"
+    | COLLAPSIBLE_LIST => "pt-collapse-list"
+    | CONTEXT_MENU => "pt-context-menu"
+    | CONTEXT_MENU_POPOVER_TARGET => "pt-context-menu-popover-target"
+    | CONTROL => "pt-control"
+    | CONTROL_GROUP => "pt-control-group"
+    | CONTROL_INDICATOR => "pt-control-indicator"
+    | DIALOG => "pt-dialog"
+    | DIALOG_CONTAINER => "pt-dialog-container"
+    | DIALOG_BODY => "pt-dialog-body"
+    | DIALOG_CLOSE_BUTTON => "pt-dialog-close-button"
+    | DIALOG_FOOTER => "pt-dialog-footer"
+    | DIALOG_FOOTER_ACTIONS => "pt-dialog-footer-actions"
+    | DIALOG_HEADER => "pt-dialog-header"
+    | EDITABLE_TEXT => "pt-editable-text"
+    | ELEVATION_0 => "pt-elevation-0"
+    | ELEVATION_1 => "pt-elevation-1"
+    | ELEVATION_2 => "pt-elevation-2"
+    | ELEVATION_3 => "pt-elevation-3"
+    | ELEVATION_4 => "pt-elevation-4"
+    | INPUT => "pt-input"
+    | INPUT_GROUP => "pt-input-group"
+    | CHECKBOX => "pt-checkbox"
+    | RADIO => "pt-radio"
+    | SWITCH => "pt-switch"
+    | FILE_UPLOAD => "pt-file-upload"
+    | FILE_UPLOAD_INPUT => "pt-file-upload-input"
+    | INTENT_PRIMARY => "pt-intent-primary"
+    | INTENT_SUCCESS => "pt-intent-success"
+    | INTENT_WARNING => "pt-intent-warning"
+    | INTENT_DANGER => "pt-intent-danger"
+    | LABEL => "pt-label"
+    | FORM_GROUP => "pt-form-group"
+    | FORM_CONTENT => "pt-form-content"
+    | FORM_HELPER_TEXT => "pt-form-helper-text"
+    | MENU => "pt-menu"
+    | MENU_ITEM => "pt-menu-item"
+    | MENU_ITEM_LABEL => "pt-menu-item-label"
+    | MENU_SUBMENU => "pt-submenu"
+    | MENU_DIVIDER => "pt-menu-divider"
+    | MENU_HEADER => "pt-menu-header"
+    | NAVBAR => "pt-navbar"
+    | NAVBAR_GROUP => "pt-navbar-group"
+    | NAVBAR_HEADING => "pt-navbar-heading"
+    | NAVBAR_DIVIDER => "pt-navbar-divider"
+    | NON_IDEAL_STATE => "pt-non-ideal-state"
+    | NON_IDEAL_STATE_ACTION => "pt-non-ideal-state-action"
+    | NON_IDEAL_STATE_DESCRIPTION => "pt-non-ideal-state-description"
+    | NON_IDEAL_STATE_ICON => "pt-non-ideal-state-icon"
+    | NON_IDEAL_STATE_TITLE => "pt-non-ideal-state-title"
+    | NON_IDEAL_STATE_VISUAL => "pt-non-ideal-state-visual"
+    | NUMERIC_INPUT => "pt-numeric-input"
+    | OVERLAY => "pt-overlay"
+    | OVERLAY_BACKDROP => "pt-overlay-backdrop"
+    | OVERLAY_CONTENT => "pt-overlay-content"
+    | OVERLAY_INLINE => "pt-overlay-inline"
+    | OVERLAY_OPEN => "pt-overlay-open"
+    | OVERLAY_SCROLL_CONTAINER => "pt-overlay-scroll-container"
+    | POPOVER => "pt-popover"
+    | POPOVER_ARROW => "pt-popover-arrow"
+    | POPOVER_BACKDROP => "pt-popover-backdrop"
+    | POPOVER_CONTENT => "pt-popover-content"
+    | POPOVER_DISMISS => "pt-popover-dismiss"
+    | POPOVER_DISMISS_OVERRIDE => "pt-popover-dismiss-override"
+    | POPOVER_OPEN => "pt-popover-open"
+    | POPOVER_TARGET => "pt-popover-target"
+    | TRANSITION_CONTAINER => "pt-transition-container"
+    | PROGRESS_BAR => "pt-progress-bar"
+    | PROGRESS_METER => "pt-progress-meter"
+    | PROGRESS_NO_STRIPES => "pt-no-stripes"
+    | PROGRESS_NO_ANIMATION => "pt-no-animation"
+    | PORTAL => "pt-portal"
+    | SELECT => "pt-select"
+    | SKELETON => "pt-skeleton"
+    | SLIDER => "pt-slider"
+    | SLIDER_HANDLE => "pt-slider-handle"
+    | SLIDER_LABEL => "pt-slider-label"
+    | RANGE_SLIDER => "pt-range-slider"
+    | SPINNER => "pt-spinner"
+    | SVG_SPINNER => "pt-svg-spinner"
+    | TAB => "pt-tab"
+    | TAB_LIST => "pt-tab-list"
+    | TAB_PANEL => "pt-tab-panel"
+    | TABS => "pt-tabs"
+    | TABLE => "pt-table"
+    | TABLE_CONDENSED => "pt-condensed"
+    | TABLE_STRIPED => "pt-striped"
+    | TABLE_BORDERED => "pt-bordered"
+    | TAG => "pt-tag"
+    | TAG_REMOVABLE => "pt-tag-removable"
+    | TAG_REMOVE => "pt-tag-remove"
+    | TOAST => "pt-toast"
+    | TOAST_CONTAINER => "pt-toast-container"
+    | TOAST_MESSAGE => "pt-toast-message"
+    | TOOLTIP => "pt-tooltip"
+    | TREE => "pt-tree"
+    | TREE_NODE => "pt-tree-node"
+    | TREE_NODE_CARET => "pt-tree-node-caret"
+    | TREE_NODE_CARET_CLOSED => "pt-tree-node-caret-closed"
+    | TREE_NODE_CARET_NONE => "pt-tree-node-caret-none"
+    | TREE_NODE_CARET_OPEN => "pt-tree-node-caret-open"
+    | TREE_NODE_CONTENT => "pt-tree-node-content"
+    | TREE_NODE_EXPANDED => "pt-tree-node-expanded"
+    | TREE_NODE_ICON => "pt-tree-node-icon"
+    | TREE_NODE_LABEL => "pt-tree-node-label"
+    | TREE_NODE_LIST => "pt-tree-node-list"
+    | TREE_NODE_SECONDARY_LABEL => "pt-tree-node-secondary-label"
+    | TREE_NODE_SELECTED => "pt-tree-node-selected"
+    | TREE_ROOT => "pt-tree-root"
+    | ICON => "pt-icon"
+    | ICON_STANDARD => "pt-icon-standard"
+    | ICON_LARGE => "pt-icon-large"
+    };
+  external iconClass : string => string = "iconClass" [@@bs.module "@blueprintjs/core"];
+  let iconClass css_class => iconClass (toString css_class);
+  external intentClass : int => string = "intentClass" [@@bs.module "@blueprintjs/core"];
+  let intentClass intent => intentClass (Intent.toInt intent);
+};
