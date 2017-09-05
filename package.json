@@ -32,7 +32,7 @@
     "reason-react": "^0.2.4"
   },
   "devDependencies": {
-    "@knit/knit": "^0.7.0",
+    "@knit/knit": "^0.7.2",
     "bs-jest": "reasonml-community/bs-jest",
     "dotenv": "^4.0.0",
     "jest": "^20.0.4",
