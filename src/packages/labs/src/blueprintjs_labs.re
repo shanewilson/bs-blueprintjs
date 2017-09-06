@@ -45,7 +45,7 @@ module Select (Item: {type t;}) => {
           "itemPredicate": itemPredicate |> Js.Undefined.from_opt,
           "itemRenderer": itemRenderer,
           "items": items,
-          "noResults": noResults |> Js.Undefined.from_opt,
+          "noResults": noResults |> Blueprintjs.unwrapJSX,
           "onItemSelect": onItemSelect,
           "popoverProps": popoverProps |> Js.Undefined.from_opt,
           "resetOnClose": resetOnClose |> Blueprintjs.unwrapBool,
@@ -100,7 +100,7 @@ module Suggest (Item: {type t;}) => {
           "itemPredicate": itemPredicate |> Js.Undefined.from_opt,
           "itemRenderer": itemRenderer,
           "items": items,
-          "noResults": noResults |> Js.Undefined.from_opt,
+          "noResults": noResults |> Blueprintjs.unwrapJSX,
           "onItemSelect": onItemSelect,
           "openOnKeyDown": openOnKeyDown |> Blueprintjs.unwrapBool,
           "popoverProps": popoverProps |> Js.Undefined.from_opt
@@ -153,7 +153,7 @@ module MultiSelect (Item: {type t;}) => {
           "itemPredicate": itemPredicate |> Js.Undefined.from_opt,
           "itemRenderer": itemRenderer,
           "items": items,
-          "noResults": noResults |> Js.Undefined.from_opt,
+          "noResults": noResults |> Blueprintjs.unwrapJSX,
           "onItemSelect": onItemSelect,
           "openOnKeyDown": openOnKeyDown |> Blueprintjs.unwrapBool,
           "popoverProps": popoverProps |> Js.Undefined.from_opt,
@@ -210,7 +210,7 @@ module Omnibox (Item: {type t;}) => {
           "itemPredicate": itemPredicate |> Js.Undefined.from_opt,
           "itemRenderer": itemRenderer,
           "items": items,
-          "noResults": noResults |> Js.Undefined.from_opt,
+          "noResults": noResults |> Blueprintjs.unwrapJSX,
           "onClose": onClose |> Js.Undefined.from_opt,
           "onItemSelect": onItemSelect,
           "overlayProps": overlayProps |> Js.Undefined.from_opt,
@@ -330,7 +330,7 @@ module TagInput = {
           "onChange": onChange |> Js.Undefined.from_opt,
           "onRemove": onRemove |> Js.Undefined.from_opt,
           "placeholder": placeholder |> Js.Undefined.from_opt,
-          "rightElement": rightElement |> Js.Undefined.from_opt,
+          "rightElement": rightElement |> Blueprintjs.unwrapJSX,
           "separator": separator |> Js.Undefined.from_opt,
           "tagProps": tagProps |> Js.Undefined.from_opt,
           "values": values
@@ -437,7 +437,7 @@ module Popover2 = {
           "backdropProps": backdropProps |> Js.Undefined.from_opt,
           "canEscapeKeyClose": canEscapeKeyClose |> Blueprintjs.unwrapBool,
           "className": className |> Js.Undefined.from_opt,
-          "content": content |> Js.Undefined.from_opt,
+          "content": content |> Blueprintjs.unwrapJSX,
           "defaultIsOpen": defaultIsOpen |> Blueprintjs.unwrapBool,
           "disabled": disabled |> Blueprintjs.unwrapBool,
           "enforceFocus": enforceFocus |> Blueprintjs.unwrapBool,
@@ -461,7 +461,7 @@ module Popover2 = {
           "popoverWillOpen": popoverWillOpen |> Js.Undefined.from_opt,
           "portalClassName": portalClassName |> Js.Undefined.from_opt,
           "rootElementTag": rootElementTag |> Js.Undefined.from_opt,
-          "target": target |> Js.Undefined.from_opt,
+          "target": target |> Blueprintjs.unwrapJSX,
           "transitionDuration": transitionDuration |> Js.Undefined.from_opt
         }: t
       )
@@ -517,7 +517,7 @@ module Tooltip2 = {
       props::(
         {
           "className": className |> Js.Undefined.from_opt,
-          "content": content,
+          "content": content (),
           "defaultIsOpen": defaultIsOpen |> Blueprintjs.unwrapBool,
           "disabled": disabled |> Blueprintjs.unwrapBool,
           "hoverCloseDelay": hoverCloseDelay |> Js.Undefined.from_opt,

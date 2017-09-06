@@ -102,7 +102,7 @@ module DatePicker = {
           "onError": onError |> Js.Undefined.from_opt,
           "outOfRangeMessage": outOfRangeMessage |> Js.Undefined.from_opt,
           "popoverProps": popoverProps |> Js.Undefined.from_opt,
-          "rightElement": rightElement |> Js.Undefined.from_opt,
+          "rightElement": rightElement |> Blueprintjs.unwrapJSX,
           "timePrecision": timePrecision |> Js.Undefined.from_opt,
           "value": value |> Js.Undefined.from_opt
         }: t
@@ -332,7 +332,7 @@ module DateInput = {
           "onError": onError |> Js.Undefined.from_opt,
           "outOfRangeMessage": outOfRangeMessage |> Js.Undefined.from_opt,
           "popoverProps": popoverProps |> Js.Undefined.from_opt,
-          "rightElement": rightElement |> Js.Undefined.from_opt,
+          "rightElement": rightElement |> Blueprintjs.unwrapJSX,
           "timePrecision": timePrecision |> Js.Undefined.from_opt,
           "value": value |> Js.Undefined.from_opt
         }: t

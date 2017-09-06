@@ -29,19 +29,25 @@ module Intent = {
   let fromOpt o =>
     switch o {
     | None => Js.Undefined.empty
-    | Some x => Js.Undefined.return (toInt x)
+    | Some intent => Js.Undefined.return (toInt intent)
     };
 };
 
 let unwrapList opt =>
   switch opt {
-  | Some b => b |> Array.of_list |> Js.Undefined.return
+  | Some lst => lst |> Array.of_list |> Js.Undefined.return
   | None => Js.Undefined.empty
   };
 
 let unwrapBool opt =>
   switch opt {
   | Some b => b |> Js.Boolean.to_js_boolean |> Js.Undefined.return
+  | None => Js.Undefined.empty
+  };
+
+let unwrapJSX opt =>
+  switch opt {
+  | Some fn => fn () |> Js.Undefined.return
   | None => Js.Undefined.empty
   };
 
@@ -513,7 +519,7 @@ module Form = {
             "indeterminate": indeterminate |> unwrapBool,
             "inputRef": inputRef |> Js.Undefined.from_opt,
             "label": label |> Js.Undefined.from_opt,
-            "labelElement": labelElement |> Js.Undefined.from_opt,
+            "labelElement": labelElement |> unwrapJSX,
             "onChange": onChange |> Js.Undefined.from_opt
           }: t
         )
@@ -553,7 +559,7 @@ module Form = {
             "disabled": disabled |> unwrapBool,
             "inputRef": inputRef |> Js.Undefined.from_opt,
             "label": label |> Js.Undefined.from_opt,
-            "labelElement": labelElement |> Js.Undefined.from_opt,
+            "labelElement": labelElement |> unwrapJSX,
             "onChange": onChange |> Js.Undefined.from_opt
           }: t
         )
@@ -593,7 +599,7 @@ module Form = {
             "disabled": disabled |> unwrapBool,
             "inputRef": inputRef |> Js.Undefined.from_opt,
             "label": label |> Js.Undefined.from_opt,
-            "labelElement": labelElement |> Js.Undefined.from_opt,
+            "labelElement": labelElement |> unwrapJSX,
             "onChange": onChange |> Js.Undefined.from_opt
           }: t
         )
@@ -681,7 +687,7 @@ module Form = {
             "leftIconName": leftIconName |> Js.Undefined.from_opt,
             "onChange": onChange |> Js.Undefined.from_opt,
             "placeholder": placeholder |> Js.Undefined.from_opt,
-            "rightElement": rightElement |> Js.Undefined.from_opt,
+            "rightElement": rightElement |> unwrapJSX,
             "_type": _type |> Js.Undefined.from_opt,
             "value": value |> Js.Undefined.from_opt
           }: t
@@ -893,7 +899,7 @@ module MenuItem = {
           "iconName": iconName |> Js.Undefined.from_opt,
           "intent": intent |> Intent.fromOpt,
           "onClick": onClick |> Js.Undefined.from_opt,
-          "label": label |> Js.Undefined.from_opt,
+          "label": label |> unwrapJSX,
           "shouldDismissPopover": shouldDismissPopover |> unwrapBool,
           "submenu": submenu |> Js.Undefined.from_opt,
           "submenuViewportMargin": submenuViewportMargin |> Js.Undefined.from_opt,
@@ -933,11 +939,11 @@ module NonIdealState = {
       ::reactClass
       props::(
         {
-          "action": action |> Js.Undefined.from_opt,
+          "action": action |> unwrapJSX,
           "className": className |> Js.Undefined.from_opt,
-          "description": description |> Js.Undefined.from_opt,
+          "description": description |> unwrapJSX,
           "title": title |> Js.Undefined.from_opt,
-          "visual": visual |> Js.Undefined.from_opt
+          "visual": visual |> unwrapJSX
         }: t
       )
       children;
@@ -1081,7 +1087,7 @@ module Popover = {
           "backdropProps": backdropProps |> Js.Undefined.from_opt,
           "canEscapeKeyClose": canEscapeKeyClose |> unwrapBool,
           "className": className |> Js.Undefined.from_opt,
-          "content": content |> Js.Undefined.from_opt,
+          "content": content |> unwrapJSX,
           "defaultIsOpen": defaultIsOpen |> unwrapBool,
           "enforceFocus": enforceFocus |> unwrapBool,
           "hoverCloseDelay": hoverCloseDelay |> Js.Undefined.from_opt,
@@ -1103,7 +1109,7 @@ module Popover = {
           "portalClassName": portalClassName |> Js.Undefined.from_opt,
           "position": position |> Js.Undefined.from_opt,
           "rootElementTag": rootElementTag |> Js.Undefined.from_opt,
-          "target": target |> Js.Undefined.from_opt,
+          "target": target |> unwrapJSX,
           "tetherOptions": tetherOptions |> Js.Undefined.from_opt,
           "transitionDuration": transitionDuration |> Js.Undefined.from_opt,
           "useSmartArrowPositioning": useSmartArrowPositioning |> unwrapBool
@@ -1343,8 +1349,8 @@ module Tab = {
           "className": className |> Js.Undefined.from_opt,
           "disabled": disabled |> unwrapBool,
           "id": id,
-          "panel": panel |> Js.Undefined.from_opt,
-          "title": title |> Js.Undefined.from_opt
+          "panel": panel |> unwrapJSX,
+          "title": title |> unwrapJSX
         }: t
       )
       children;
@@ -1447,7 +1453,7 @@ module Toast = {
           "className": className |> Js.Undefined.from_opt,
           "iconName": iconName |> Js.Undefined.from_opt,
           "intent": intent |> Intent.fromOpt,
-          "message": message,
+          "message": message (),
           "onDismiss": onDismiss |> Js.Undefined.from_opt,
           "timeout": timeout |> Js.Undefined.from_opt
         }: t
@@ -1508,7 +1514,7 @@ module Tooltip = {
       props::(
         {
           "className": className |> Js.Undefined.from_opt,
-          "content": content |> Js.Undefined.from_opt,
+          "content": content |> unwrapJSX,
           "defaultIsOpen": defaultIsOpen |> unwrapBool,
           "hoverCloseDelay": hoverCloseDelay |> Js.Undefined.from_opt,
           "hoverOpenDelay": hoverOpenDelay |> Js.Undefined.from_opt,
@@ -1627,7 +1633,7 @@ module CollapsibleList = {
         {
           "className": className |> Js.Undefined.from_opt,
           "collapseFrom": collapseFrom |> Js.Undefined.from_opt,
-          "dropdownProps": dropdownProps |> Js.Undefined.from_opt,
+          "dropdownProps": dropdownProps |> unwrapJSX,
           "dropdownTarget": dropdownTarget,
           "renderVisibleItem": renderVisibleItem,
           "visibleItemClassName": visibleItemClassName |> Js.Undefined.from_opt,
